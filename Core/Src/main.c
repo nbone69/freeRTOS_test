@@ -38,13 +38,7 @@ int main(void)
   SystemClock_Config();
   MX_GPIO_Init();
   MX_USART2_UART_Init();
-  xTaskCreateStatic(  vFirstTask,       /* Function that implements the task. */
-                      "FirstTask",      /* Text name for the task. */
-                      128,              /* Stack size in words, not bytes. */
-                      NULL,            /* Parameter passed into the task. */
-                      1,                 /* Priority at which the task is created. */
-                      NULL,            /* Array to use as the task's stack. */
-                      NULL );          /* Variable to hold the task's data structure. */
+  xTaskCreate(vFirstTask,"FirstTask",128,NULL,1,NULL);          /* Variable to hold the task's data structure. */
 
   vTaskStartScheduler();
   while (1)
